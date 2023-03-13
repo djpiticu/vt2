@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>vt2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        @font-face{
+            font-family:'HK Grotesk';
+            src:url(css/fonts/hkgrotesk/HKGrotesk-Regular.woff2) format('woff2'),url(css/fonts/hkgrotesk/HKGrotesk-Regular.woff) format('woff');
+            font-weight:300;
+            font-style:normal;
+            font-display:swap
+        }
+        @font-face{
+            font-family:'HK Grotesk';
+            src:url(css/fonts/hkgrotesk/HKGrotesk-Medium.woff2) format('woff2'),url(css/fonts/hkgrotesk/HKGrotesk-Medium.woff) format('woff');
+            font-weight:400;
+            font-style:normal;
+            font-display:swap
+        }
+        @font-face{
+            font-family:hk_grotesk;
+            src:url(css/fonts/hkgrotesk/HKGrotesk-Italic.woff2) format('woff2'),url(css/fonts/hkgrotesk/HKGrotesk-Italic.woff) format('woff');
+            font-weight:400;
+            font-style:italic;
+            font-display:swap
+        }
+        @font-face{
+            font-family:'HK Grotesk';
+            src:url(css/fonts/hkgrotesk/HKGrotesk-SemiBold.woff2) format('woff2'),url(css/fonts/hkgrotesk/HKGrotesk-SemiBold.woff) format('woff');
+            font-weight:700;
+            font-style:normal;
+            font-display:swap
+        }
+        @font-face{
+            font-family:Lora;
+            font-style:italic;
+            font-weight:400;
+            font-display:swap;
+            src:url(https://fonts.gstatic.com/s/lora/v17/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoqF2mvWc3ZyhTjcV.woff) format('woff');
+            unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
+        }
+        @font-face{
+            font-family:Lora;
+            font-style:italic;
+            font-weight:400;
+            font-display:swap;
+            src:url(https://fonts.gstatic.com/s/lora/v17/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFoq92mvWc3ZyhTg.woff) format('woff');
+            unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+        }
+
+    </style>
+    <!-- Custom built theme - This already includes Bootstrap 5 -->
+<!--    <link rel="stylesheet" href="css/vintage-theme.min.css">-->
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/vintage-theme.css">
+</head>
+<body class="bg-body">
+
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="navbar-body">
+        <div class="container">
+            <!-- Navbar Logo -->
+            <div class="navbar-brand navbar-logoX order-md-1">
+                <a href="/" class="">
+                    <img src="https://www.vintagelakasdekor.hu/style/icons/vintagelakasdekor-logo.svg" class="store-logo" width="auto" height="50">
+                </a>
+            </div>
+
+            <!-- Navbar Ted -->
+            <div class="navbar-social order-md-2" style="width: auto;">
+                <a href="{{ storeSettings.get('social.facebook') }}" target="_blank" title="facebook" class="navbar-link"><svg class="icon"><use xlink:href="#facebook"></use></svg></a>
+                <a href="{{ storeSettings.get('social.instagram') }}" target="_blank" title="instagram" class="navbar-link"><svg class="icon"><use xlink:href="#instagram"></use></svg></a>
+                <a href="{{ storeSettings.get('social.pinterest') }}" target="_blank" title="pinterest" class="navbar-link"><i class="fab fa-pinterest"></i></a>
+                <a href="{{ storeSettings.get('social.twitter') }}" target="_blank" title="vimeo" class="navbar-link"><i class="fab fa-twitter"></i></a>
+                <a href="{{ storeSettings.get('social.youtube') }}" target="_blank" title="vimeo" class="navbar-link"><i class="fab fa-youtube"></i></a>
+                <div class="nav-item navbar-link">
+                    <svg class="icon">
+                        <use xlink:href="#telephone"> </use>
+                    </svg>
+                    <span class="navbar-text d-lg-inline ml-1">0670</span>
+                </div>
+            </div>
+
+            <a class="navbar-toggler" href="#" role="button" data-toggle="sidebar" data-target="#sidebar--mobileMenu">
+                <svg class="icon">
+                    <use xlink:href="#list"> </use>
+                </svg>
+            </a>
+
+            <!-- Navbar Menu -->
+            <div class="navbar-collapse collapse navbar-menu bg-transparent justify-content-end" id="navbarMenu">
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item"><a href="/" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item"><a href="/" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-primary">-->
+<!--    <div class="container-mdX">-->
+<!--        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"-->
+<!--                data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"-->
+<!--                aria-expanded="false"-->
+<!--                aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <a class="navbar-brand" href="#!">Navbar</a>-->
+
+<!--        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">-->
+<!--            <ul class="navbar-nav mr-auto mt-2 mt-md-0">-->
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href="#!">Home-->
+<!--                        <span class="sr-only">(current)</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#!">Link</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link disabled" href="#!">Disabled</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <form class="form-inline my-2 my-lg-0">-->
+<!--                <input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-lg-4 col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item" style="height: 40px; background-color: #f8f8f8;">gray-100 | #f8f8f8</li>
+                <li class="list-group-item" style="height: 40px; background-color: #f3f1f1;">gray-200 | #f3f1f1</li>
+                <li class="list-group-item" style="height: 40px; background-color: #e8ebec;">gray-300 | #e8ebec</li>
+                <li class="list-group-item" style="height: 40px; background-color: #e6e4e1;">gray-400 | #e6e4e1</li>
+                <li class="list-group-item" style="height: 40px; background-color: #e5e7ee;">gray-500 | #e5e7ee</li>
+                <li class="list-group-item" style="height: 40px; background-color: #cacdce;">gray-600 | #cacdce</li>
+                <li class="list-group-item" style="height: 40px; background-color: #707378;">gray-700 | #707378</li>
+                <li class="list-group-item" style="height: 40px; background-color: #43464b;">gray-800 | #43464b</li>
+                <li class="list-group-item" style="height: 40px; background-color: #121519; color: #f8f8f8;">gray-900 | #121519</li>
+                <li class="list-group-item" style="height: 40px; background-color: #000000; color: #f8f8f8">black | #000000</li>
+
+                <li class="list-group-item" style="height: 40px; background-color: #ffffff;">white | #ffffff</li>
+                <li class="list-group-item" style="height: 40px; background-color: #fcfcfd;">gray-010 | #fcfcfd | < select ></li>
+                <li class="list-group-item" style="height: 40px; background-color: #eeeeee;">gray-030 | #eeeeee | btn-secondary </li>
+                <li class="list-group-item" style="height: 40px; background-color: #3c3c3c; color: #f8f8f8">gray-080 | #3c3c3c | btn-primary</li>
+            </ul>
+            <ul class="list-group mt-3">
+                <li class="list-group-item bg-primary" style="height: 40px;">primary</li>
+                <li class="list-group-item bg-secondary" style="height: 40px;">secondary</li>
+                <li class="list-group-item bg-warning" style="height: 40px;">warning</li>
+                <li class="list-group-item bg-danger" style="height: 40px;">danger</li>
+                <li class="list-group-item bg-info" style="height: 40px;">info</li>
+                <li class="list-group-item bg-light" style="height: 40px;">light</li>
+                <li class="list-group-item bg-dark" style="height: 40px;">dark</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item" style="height: 40px; background-color: #9CDBF1;">#9CDBF1 | blue</li>
+                <li class="list-group-item" style="height: 40px; background-color: #ebf6fd;">#ebf6fd | blue lighten</li>
+                <li class="list-group-item" style="height: 40px; background-color: #0070BE;">#0070BE | blue dark</li>
+                <li class="list-group-item" style="height: 40px; background-color: #6610f2;">#6610f2 | indigo</li>
+                <li class="list-group-item" style="height: 40px; background-color: #876EBD;">#876EBD | purple</li>
+                <li class="list-group-item" style="height: 40px; background-color: #d1bff8;">#d1bff8 | purple lighten</li>
+                <li class="list-group-item" style="height: 40px; background-color: #e83e8c;">#e83e8c | pink</li>
+                <li class="list-group-item" style="height: 40px; background-color: #dc3545;">#dc3545 | red</li>
+                <li class="list-group-item" style="height: 40px; background-color: #FFC8C9;">#FFC8C9 | red lighten</li>
+                <li class="list-group-item" style="height: 40px; background-color: #fd7e14;">#fd7e14 | orange</li>
+                <li class="list-group-item" style="height: 40px; background-color: #FFF0CA;">#FFF0CA | yellow</li>
+                <li class="list-group-item" style="height: 40px; background-color: #F4EDDD;">#F4EDDD | yellow lighten</li>
+                <li class="list-group-item" style="height: 40px; background-color: #00924A;">#00924A | green</li>
+                <li class="list-group-item" style="height: 40px; background-color: #bbe5b3;">#bbe5b3 | green lighten</li>
+                <li class="list-group-item" style="height: 40px; background-color: #20c997;">#20c997 | teal</li>
+                <li class="list-group-item" style="height: 40px; background-color: #469ab9;">#469ab9 | cyan</li>
+                <li class="list-group-item" style="height: 40px; background-color: #ffedee;">#ffedee | peach</li>
+                <li class="list-group-item" style="height: 40px; background-color: #5B6377;">#5B6377 | purple gray</li>
+                <li class="list-group-item" style="height: 40px; background-color: #404756;">#404756 | purple gray dark</li>
+                <li class="list-group-item" style="height: 40px; background-color: #eeeeee;">#eeeeee | gray eee</li>
+                <li class="list-group-item" style="height: 40px; background-color: #fcfcfd;">#fcfcfd | gray 100 select</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <!--Forms-->
+            <div class="">
+                <form class="needs-validation">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        <div class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="form-group form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Default checkbox
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Checked checkbox
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Default radio
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Default checked radio
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-file">
+                            <input type="file" id="file" class="form-control">
+                            <span class="custom-file-control"></span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary">Primary</button>
+                        <button type="button" class="btn btn-secondary">Secondary</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="mt-4">
+                <form class="needs-validation was-validated">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control is-invalid" id="exampleFormControlInput1" placeholder="name@example.com">
+                        <div class="form-text">We'll never share your email with anyone else.</div>
+                        <div class="invalid-feedback">
+                            Please select a valid state.
+                        </div>
+                    </div>
+                    <div class="form-group form-check">
+                        <input class="form-check-input is-invalid" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Default checkbox
+                        </label>
+                        <div class="invalid-feedback">
+                            Please select a valid state.
+                        </div>
+                    </div>
+                    <div class="form-group form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Checked checkbox
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input is-invalid" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Default radio
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Default checked radio
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-select is-invalid" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid state.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success">Success</button>
+                        <br>
+                        <button type="button" class="btn btn-call-to-action">Call to action</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 article">
+        <div class="col-lg-12">
+            <div class="article-header">
+                <div class="article-title">
+                    <h1>25 tavaszi kopogtató a bejárati ajtó felfrissítésére</h1>
+                </div>
+                <div>
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item">
+                            <a class="text-decoration-none" href="/blog" title="Cikkek: Blog">Blog</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            2023. Február 21.
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            Szerző: Levente
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-6">
+            <!--Body text-->
+            <div class="">
+                <div class="article-body">
+                    <p>Miért virágküldés? Az örömért. Az örömért amit érzünk amikor kapunk, de talán leginkább azért az örömért amit abban lelünk, hogy <a href="/">megajándekozhatunk valakit</a>, netán mosolyt csalhatunk szeretteink arcára. Hiszünk abban, hogy virágajándékozás az örömszerzésről szól, a meglepetés erejéről, a mosolyról amit szeretteinktől visszakapunk.</p>
+                    <h2>Ugye veled is előfordult már</h2>
+                    <p>Ugye veled is előfordult már, hogy eszedbe jutott egy kedves ismerős? Vagy amikor munkaidőben csak a szerelmedre tudtál gondolni, netán hálát éréztél valaki iránt de éppen nem tudtad miképpen mutathatod ki az illető felé? Ezek mind gyönyörűszép emberi érzések. A Difiorival olyan szolgáltatást álmodtunk meg, ami révén könyedén kifejezheted ezen érzéseidet, szeretteid tudtukra adhatod, hogy gondolsz rájuk és menyire fontosak neked.  </p>
+                    <h3>Minden az örömszerzésről szól</h3>
+                    <p>Netán mosolyt csalhatunk szeretteink arcára. Hiszünk abban, hogy virágajándékozás az örömszerzésről szól, a meglepetés erejéről, a mosolyról amit szeretteinktől visszakapunk.</p>
+                    <figure class="figure">
+                        <img class="img-fluid" src="https://www.vintagelakasdekor.hu/media/cache/unscaled/uploads/images/store/diy-csinald-magad-csomagok-a-rafina-home-decortol-63f852029a0e9.jpg" alt="Csináld magad csomagok a Rafina.hu kínálatában" width="100%" height="auto">
+                        <figcaption class="figure-caption">Csináld magad csomagok a Rafina.hu kínálatában</figcaption>
+                    </figure>
+                    <blockquote>Legyen szó egy csokorról, virágdekorációról, vagy akár egy esküvőről csapatunk nem ismer lehetetlent!</blockquote>
+                    <p>Ugye veled is előfordult már, hogy eszedbe jutott egy kedves ismerős? Vagy amikor munkaidőben csak a szerelmedre tudtál gondolni, netán hálát éréztél valaki iránt de éppen nem tudtad miképpen mutathatod ki az illető felé? Ezek mind gyönyörűszép emberi érzések. A Difiorival olyan szolgáltatást álmodtunk meg, ami révén könyedén kifejezheted ezen érzéseidet, szeretteid tudtukra adhatod, hogy gondolsz rájuk és menyire fontosak neked.  </p>
+                </div>
+                <div class="article-share mb-4">
+                    <div>
+                        <ul class="list-group flex-row align-items-center">
+                            <li class="list-group-item border-0 p-0 me-3">
+                                <h3 class="title-borderX mb-0">Megosztás</h3>
+                            </li>
+                            <li class="list-group-item border-0 p-0">
+                                <a class="btn facebook" href="https://www.facebook.com/sharer.php?u=http://www.vld.hu/blog/25-tavaszi-kopogtato-a-bejarati-ajto-felfrissitesere?blog=blog" target="_blank" rel="noopener">
+                                    <svg class="icon">
+                                        <use xlink:href="#facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="list-group-item border-0 p-0">
+                                <a class="btn pinterest" href="https://pinterest.com/pin/create/button/?url=http://www.vld.hu/blog/25-tavaszi-kopogtato-a-bejarati-ajto-felfrissitesere?blog=blog" target="_blank" rel="noopener">
+                                    <svg class="icon">
+                                        <use xlink:href="#pinterest"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="list-group-item border-0 p-0">
+                                <a class="btn email" href="mailto:?body=http://www.vld.hu/blog/25-tavaszi-kopogtato-a-bejarati-ajto-felfrissitesere?blog=blog" target="_blank" rel="noopener">
+                                    <svg class="icon">
+                                        <use xlink:href="#envelope-fill"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="list-group-item border-0 p-0">
+                                <a class="btn linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.vld.hu/blog/25-tavaszi-kopogtato-a-bejarati-ajto-felfrissitesere?blog=blog" target="_blank" rel="noopener">
+                                    <svg class="icon">
+                                        <use xlink:href="#linkedin"></use>
+                                    </svg>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <!--Card -->
+        <div class="col-lg-4 mt-lg-0 mt-4">
+            <div class="card mb-2 d-inline-block">
+                <img class="card-img-top" src="https://d19m59y37dris4.cloudfront.net/sell/2-0-1/img/photo/christopher-campbell-28571-unsplash.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Primary card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the
+                        bulk of the card's content.</p>
+                </div>
+            </div>
+            <!--Pagination-->
+            <div class="mt-2">
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <span class="page-link">Previous</span>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#!">1</a>
+                        </li>
+                        <li class="page-item active">
+                          <span class="page-link">
+                            2
+                            <span class="sr-only">(current)</span>
+                          </span>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#!">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#!">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="card mb-3 d-inline-block">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h4 class="card-title">Primary card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the
+                        bulk of the card's content.</p>
+                </div>
+                <div class="card-footer">
+                    Powered by TikTok.
+                </div>
+            </div>
+            <div class="mt-2">
+                <ul class="list-group">
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Article -->
+        <div class="col-lg-4 col-md-6">
+            <!--Breadcrumb-->
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb mt-2">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                </ol>
+            </nav>
+            <!--Body text-->
+            <h1>DIY avagy csináld magad, ami a saját nemében egy széles körben elterjedt filozófiáról beszélünk</h1>
+            <p>Miért virágküldés? Az örömért. Az örömért amit érzünk amikor kapunk, de talán leginkább azért az örömért amit abban lelünk, hogy <a href="/">megajándekozhatunk valakit</a>, netán mosolyt csalhatunk szeretteink arcára. Hiszünk abban, hogy virágajándékozás az örömszerzésről szól, a meglepetés erejéről, a mosolyról amit szeretteinktől visszakapunk.</p>
+            <p>Netán mosolyt csalhatunk szeretteink arcára. Hiszünk abban, hogy virágajándékozás az örömszerzésről szól, a meglepetés erejéről, a mosolyról amit szeretteinktől visszakapunk.</p>
+            <blockquote>Legyen szó egy csokorról, virágdekorációról, vagy akár egy esküvőről csapatunk nem ismer lehetetlent!</blockquote>
+            <p>Ugye veled is előfordult már, hogy eszedbe jutott egy kedves ismerős? Vagy amikor munkaidőben csak a szerelmedre tudtál gondolni, netán hálát éréztél valaki iránt de éppen nem tudtad miképpen mutathatod ki az illető felé? Ezek mind gyönyörűszép emberi érzések. A Difiorival olyan szolgáltatást álmodtunk meg, ami révén könyedén kifejezheted ezen érzéseidet, szeretteid tudtukra adhatod, hogy gondolsz rájuk és menyire fontosak neked.  </p>
+            <button class="btn btn-call-to-action w-100">Igen, szeretnék feliratkozni</button>
+            <a href="/" class="d-block w-100 text-center mt-2">Nem kérek hírlevelet</a>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+
+
+            <!--Alerts-->
+            <div class="mb-2 alert alert-primary" role="alert">
+                This is a primary alert with <a href="#" class="alert-link">an example link</a>.
+            </div>
+            <div class="mb-2 alert alert-secondary" role="alert">
+                This is a secondary alert with <a href="#" class="alert-link">an example link</a>.
+            </div>
+            <div class="mb-2 alert alert-success" role="alert">
+                This is a success alert with <a href="#" class="alert-link">an example link</a>.
+            </div>
+            <div class="mb-2 alert alert-danger" role="alert">
+                This is a danger alert with <a href="#" class="alert-link">an example link</a>.
+            </div>
+            <div class="mb-2 alert alert-warning" role="alert">
+                This is a warning alert with <a href="#" class="alert-link">an example link</a>.
+            </div>
+            <div class="mb-2 alert alert-info" role="alert">
+                This is a info alert with <a href="#" class="alert-link">an example link</a>.
+            </div>
+            <div class="mb-2 alert alert-light" role="alert">
+                This is a light alert with <a href="#" class="alert-link">an example link</a>.
+            </div>
+            <div class="mb-2 alert alert-dark" role="alert">
+                This is a dark alert with <a href="#" class="alert-link">an example link</a>.
+            </div>
+
+        </div>
+    </div>
+    <div class="mb-4"></div>
+</div>
+<footer class="main-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-11 col-xl-12 mx-auto">
+                <div class="footer-body">
+                    <div class="row text-sm-left">
+                        <div class="col-sm-6 col-md-6 mb-3 mb-lg-0">
+                            <h5 class="text-uppercase mb-3">Elérhetőségek</h5>
+                            <p class="mb-2">Email</p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="/" target="_blank" title="facebook" class="h3"><svg class="icon mr-0"><use xlink:href="#facebook"></use></svg></a></li>
+                                <li class="list-inline-item"><a href="/" target="_blank" title="instagram" class="h3"><svg class="icon mr-0"><use xlink:href="#instagram"></use></svg></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-6 mb-3 mb-lg-0">
+                            <h5 class="text-uppercase mb-3">Információk</h5>
+                            <ul class="list-unstyled">
+                                <a href="/" class="">
+                                    <img src="https://www.vintagelakasdekor.hu/style/icons/vintagelakasdekor-logo-white.svg" class="store-logo" width="auto" height="50">
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-body footer-nav-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-11 col-xl-12 mx-auto">
+                    <div class="row">
+                        <div class="col-md-8 text-sm-left">
+                            <p class="mb-md-0">©2023 Copyright.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mt-2 mt-md-0 text-center text-sm-left text-md-right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script async>
+    // ------------------------------------------------------- //
+    //   Inject SVG Sprite -
+    //   see more here
+    //   https://css-tricks.com/ajaxing-svg-sprite/
+    // ------------------------------------------------------ //
+    function injectSvgSprite(path) {
+
+        var ajax = new XMLHttpRequest();
+        ajax.open("GET", path, true);
+        ajax.send();
+        ajax.onload = function(e) {
+            var div = document.createElement("div");
+            div.className = 'd-none';
+            div.innerHTML = ajax.responseText;
+            document.body.insertBefore(div, document.body.childNodes[0]);
+        }
+    }
+    injectSvgSprite('css/icons/icons-sprite.svg');
+</script>
+</body>
+</html>

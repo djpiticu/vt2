@@ -1,0 +1,11 @@
+figure,
+.figure {
+  margin-bottom: $figure-caption-margin-y;
+  border-bottom: 1px solid $figure-caption-border;
+}
+
+figcaption,
+.figure-caption {
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+}

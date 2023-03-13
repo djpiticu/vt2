@@ -1,0 +1,39 @@
+
+%letter-spacing {
+  letter-spacing: $headings-letter-spacing;  // Added by Stulipan
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @extend %letter-spacing;
+}
+
+// Links
+
+a {
+  letter-spacing: $link-letter-spacing; // Added by Stulipan
+
+  &:focus {
+    outline-color: rgba($blue-dark, .6); // Added by Stulipan
+  }
+}
+
+// Blockquote
+
+blockquote {
+  --#{$prefix}blockquote-bg: #{$blockquote-bg};
+  --#{$prefix}blockquote-highlight-color: #{$blockquote-highlight-color};
+  --#{$prefix}blockquote-font-family: #{$blockquote-font-family};
+  --#{$prefix}blockquote-font-size: #{$blockquote-font-size};
+  --#{$prefix}blockquote-padding-x: #{$blockquote-padding-x};
+
+
+  border-left: 11px solid var(--#{$prefix}blockquote-highlight-color);
+  border-radius: 11px;
+  background: var(--#{$prefix}blockquote-bg);
+  font-family: var(--#{$prefix}blockquote-font-family);
+  font-size: var(--#{$prefix}blockquote-font-size);
+  font-weight: 300;
+  padding: var(--#{$prefix}blockquote-padding-x);
+  font-style: italic;
+
+}

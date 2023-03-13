@@ -1,0 +1,39 @@
+// Share buttons
+
+$share-button-colors: ();
+$share-button-colors: map-merge(
+    (
+            "facebook":         #6688ce,
+            "pinterest":        #e60023,
+            "linkedin":         #3a9bdc,
+            "twitter":          #27c5f6,
+            "email":            $gray-600
+    ),
+    $share-button-colors
+);
+
+@each $color, $value in $share-button-colors {
+  .#{$color} {
+    margin-right: .65rem;
+    @include button-variant(
+            $value,
+            $value,
+            $color: color-contrast(darken($value, 50%)),
+            $hover-background: darken($value, 5%),
+            $hover-border: darken($value, 5%),
+            $active-background: darken($value, 7.5%),
+            $active-border: darken($value, 7.5%)
+    );
+
+    &:focus,
+    &:hover,
+    &:focus-visible {
+      //color: $white;
+    }
+
+    & .icon {
+      --icon-font-size: 1.4rem;
+      margin-right: 0;
+    }
+  }
+}

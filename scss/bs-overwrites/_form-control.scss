@@ -1,0 +1,31 @@
+.form-control {
+  padding: calc(#{$input-padding-y} * 1.1) $input-padding-x calc(#{$input-padding-y} * .9);  // Added by Stulipan
+
+  &:disabled {
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: .7;
+  }
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  &:focus {
+    @if $enable-shadows {
+      @include box-shadow($input-focus-box-shadow);
+    //} @else {
+    //  // Avoid using mixin so we can pass custom focus shadow properly
+    //  box-shadow: $input-focus-box-shadow;
+    }
+  }
+}
+
+.form-control-sm {
+  padding: calc(#{$input-padding-y-sm} * 1.1) $input-padding-x-sm calc(#{$input-padding-y-sm} * .9); // Added by Stulipan
+}
+.form-control-lg {
+  padding: calc(#{$input-padding-y-lg} * 1.1) $input-padding-x-lg calc(#{$input-padding-y-lg} * .9); // Added by Stulipan
+}
+
+// Added by Stulipan, as .form-group is no longer part of Bootstrap v5
+.form-group {
+  margin-bottom: $form-group-margin-bottom;
+  position: relative;
+}

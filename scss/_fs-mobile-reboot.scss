@@ -1,0 +1,180 @@
+// Font size (mobile reboot)
+
+// Corrections for mobile devices
+// E.g.: input fields must have 1rem (16px) font size (!)
+
+$mobile-font-size:                            1.13rem;
+$mobile-line-height:                          1.5;
+
+$mobile-nm-x:                                 #{$card-spacer-x};
+
+:root {
+  --fs-mobile-font-size:                             #{$mobile-font-size};
+  --fs-mobile-line-height:                           1.5;
+  --fs-mobile-font-size-sm:                          calc(var(--fs-mobile-font-size) * .875);
+  --fs-mobile-line-height-sm:                        1.25;
+
+
+  //--fs-mobile-input-font-size:                       #{$mobile-font-size};
+  --fs-mobile-input-height:                          calc(var(--fs-mobile-line-height) + #{$input-padding-y * 2} + #{$input-height-border});
+  --fs-mobile-input-height-sm:                       calc(var(--fs-mobile-line-height-sm) + #{$input-btn-padding-y-sm * 2} + #{$input-height-border});
+
+
+  --vt-article-font-size: #{$mobile-font-size};
+  --vt-article-line-height: #{$mobile-line-height};
+  --vt-article-figure-caption-font-size: 1rem; // Ez kb a 78%-a az article font-size-nak
+}
+
+
+
+
+@include media-breakpoint-down(sm) {
+  %mobile-size {
+    font-size: var(--fs-mobile-font-size) !important;
+    line-height: var(--fs-mobile-line-height) !important;
+    font-weight: normal !important;           // Csak mobilon lesz minden 'normal' vastag.
+  }
+
+  body,
+  .col-form-label,
+  .list-group-item,
+  .dropdown-menu,
+  h5, .h5,
+  h6, .h6,
+  .lead
+  {
+    @extend %mobile-size;
+  }
+
+  .article-body {
+    & p,
+    & span,
+    & blockquote,
+    & ol,
+    & ul,
+    & li {
+      @extend %mobile-size;
+    }
+  }
+
+  .h1 {
+    --mobile-h1-font-size: calc(1.475rem + 2.7vw);
+    font-size: calc(1.475rem + 2.7vw);
+  }
+
+
+  ////////////////////////////////////
+  //  FORM INPUTS
+  ///////////////////////////////////
+  .btn,
+  .form-control, .form-select,
+  .form-check-label
+  {
+    @extend %mobile-size;
+  }
+  .btn {
+    padding-left: .75rem !important;
+    padding-right: .75rem !important;
+  }
+
+  ////////////////////////////////////
+  //  SMALL
+  ////////////////////////////////////
+  small,
+  .text-sm,
+  .btn-sm,
+  .checkout-summary,
+  .progress--bar
+  {
+    font-size: var(--fs-mobile-font-size-sm);
+    line-height: var(--fs-mobile-line-height-sm);
+  }
+  .form-control-sm {
+    height: var(--fs-mobile-input-height-sm);
+  }
+
+  ////////////////////////////////////
+  //  LARGE
+  ////////////////////////////////////
+  //.btn-lg {
+  //  @include font-size(--fs-mobile-font-size-lg);
+  //  line-height: --fs-mobile-line-height-lg;
+  //}
+
+  //// Border color correction: darker border
+  //.form-control,
+  //.input-float .form-control
+  //{
+  //  border-color: $gray-500;
+  //}
+}
+
+
+
+
+@include media-breakpoint-down(sm) {
+  .container {
+    padding-right: $mobile-nm-x;
+    padding-left: $mobile-nm-x;
+  }
+  .row {
+    margin-right: calc(-1 * #{$mobile-nm-x});
+    margin-left: calc(-1 * #{$mobile-nm-x});
+
+    & > .col,
+    & > [class*="col-"] {
+      padding-right: $mobile-nm-x;
+      padding-left: $mobile-nm-x;
+    }
+  }
+
+  .row-narrow {
+    margin-right: calc(-1 * #{$mobile-nm-x} / 2);
+    margin-left: calc(-1 * #{$mobile-nm-x} / 2);
+
+    > .col,
+    > [class*="col-"] {
+      padding-right: $mobile-nm-x / 2;
+      padding-left: $mobile-nm-x / 2;
+    }
+  }
+}
+
+.scroll-overflower {
+  overflow-x: scroll;
+  position: relative;
+
+  & .scroll-overflower-wrapper {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: $mobile-nm-x; //
+
+    @include media-breakpoint-down(sm) {
+      width: calc(960px - 2 * #{$mobile-nm-x});
+    }
+    @include media-breakpoint-down(xs) {
+      width: calc(1060px - 2 * #{$mobile-nm-x});
+    }
+  }
+
+}
+
+// Correction. Use class "correction-no-padding" instead of "px-0 px-md-10px"
+.correction-no-padding {
+  @include media-breakpoint-down(xs) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    & .card {
+      border-radius: 0;
+    }
+  }
+}
+
+.correction-product-image-no-padding {
+  @include media-breakpoint-down(xs) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

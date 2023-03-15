@@ -5,15 +5,25 @@
 //
 // exports.default = defaultTask
 
-
-var gulp  = require('gulp'),
+var gulp = require('gulp'),
     // sass = require('gulp-sass'),
     sass = require('gulp-sass')(require('sass')),
     sourcemaps = require('gulp-sourcemaps'),
     cleanCss = require('gulp-clean-css'),
     rename = require('gulp-rename'),
+
+    file = require('gulp-file'),
+    // revAll = require('gulp-rev-all'), // Added by Stulipan
+
     postcss      = require('gulp-postcss'),
     autoprefixer = require('autoprefixer');
+
+function deployVersion() {
+    // Idea taken from here: https://stackoverflow.com/questions/58709532/how-to-get-gulp-build-version-for-automatically-refreshing-css-cache-with-php
+
+    let uniqueVersion = Date.now() + ( (Math.random() * 100000).toFixed());
+    return file('version.txt', uniqueVersion.toString());
+}
 
 function buildCss() {
     return gulp.src(['scss/*.scss'])
@@ -33,10 +43,20 @@ function buildCss() {
             // }
         // )]))
         // .pipe(sourcemaps.write())
+
+        // Creates the .css file
         .pipe(gulp.dest('css/'))
+
+        // Creates the .min.css file
         .pipe(cleanCss())
+        // .pipe(revAll.revision())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('css/'))
+
+        // Create version.txt
+        .pipe(deployVersion())
+        .pipe(gulp.dest('css/'))
+    ;
 }
 
 function watcher() {
